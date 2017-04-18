@@ -156,6 +156,9 @@ if os.environ.has_key('CPPFLAGS'):
 if os.environ.has_key('LDFLAGS'):
   env['LINKFLAGS'] += SCons.Util.CLVar(os.environ['LDFLAGS'])
 
+env['CFLAGS'] += '-mmacosx-version-min=10.7'
+env['CXXFLAGS'] += '-mmacosx-version-min=10.7'
+
 def CheckPKGConfig(context, version):
   context.Message( 'Checking for pkg-config... ' )
   ret = context.TryAction('pkg-config --atleast-pkgconfig-version=%s' % version)[0]
